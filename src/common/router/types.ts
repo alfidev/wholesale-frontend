@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import { FC } from 'react';
 
-export type RouterItem = {
+export type RouteItem = {
   path: string;
   exact: boolean;
-  component: ReactNode;
+  component: FC;
 };

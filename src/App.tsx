@@ -1,33 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-
-const applicationRoutes: RouteItem[] = [
-  {
-    path: '/',
-    exact: true,
-    component: <></>,
-  },
-  {
-    path: '/catalog',
-    exact: false,
-    component: <></>,
-  },
-  {
-    path: '/baskets',
-    exact: false,
-    component: <></>,
-  },
-  {
-    path: '/orders',
-    exact: false,
-    component: <></>,
-  },
-  {
-    path: '/profile',
-    exact: false,
-    component: <></>,
-  },
-];
+import { applicationRoutes } from './common/router';
 
 const App = () => {
   return (
@@ -37,9 +10,9 @@ const App = () => {
           login
         </Route>
         {applicationRoutes.map(
-          ({ exact, path, component: Component }, index) => (
+          ({ exact, path, component: RouteComponent }, index) => (
             <Route key={index} exact={exact} path={path}>
-              <Component />
+              <RouteComponent />
             </Route>
           ),
         )}
