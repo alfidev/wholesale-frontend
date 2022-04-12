@@ -6,7 +6,7 @@ module.exports = function (app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://test.lampastar.ru/index.php',
+      target: 'http://localhost:4000/api',
       changeOrigin: true,
       logLevel: 'debug',
     }),

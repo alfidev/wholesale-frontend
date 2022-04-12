@@ -1,17 +1,12 @@
-import { applyMiddleware, compose, createStore } from '@reduxjs/toolkit';
 import { rootReducer } from './reducers';
-import { middleware } from './middleware';
+import { configureStore } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
 
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-  }
-}
+export const store = configureStore({
+  reducer: rootReducer,
+  devTools: process.env.NODE_ENV !== 'production',
+});
 
-const composeEnhancers =
-  window['__REDUX_DEVTOOLS_EXTENSION_COMPOSE__'] || compose;
-
-export const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(...middleware)),
-);
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();

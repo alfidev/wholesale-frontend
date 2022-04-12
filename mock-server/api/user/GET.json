@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "firstName": "Alexey",
+  "lastName": "Firsaev",
+  "phoneNumber": "+79136628617",
+  "manager": {
+    "id": 12,
+    "firstName": "Tatyana",
+    "lastName": "Russakova",
+    "phoneNumber": "+79999999999"
+  }
+}
